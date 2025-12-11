@@ -118,13 +118,13 @@ void AnovaCodec::decode(const uint8_t *data, uint16_t length) {
       this->has_current_temp_ = true;
       break;
     }
-    case SET_UNIT:
-    case READ_UNIT: {
-      this->unit_ = buf[0];
-      this->fahrenheit_ = buf[0] == 'f';
-      this->has_unit_ = true;
-      break;
-    }
+    // case SET_UNIT:
+    // case READ_UNIT: {
+    //   this->unit_ = buf[0];
+    //   this->fahrenheit_ = buf[0] == 'f';
+    //   this->has_unit_ = true;
+    //   break;
+    // }
     default:
       break;
   }
