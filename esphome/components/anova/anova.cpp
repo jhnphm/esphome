@@ -136,7 +136,7 @@ void Anova::gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_t gattc_
   }
 }
 
-void Anova::set_unit_of_measurement(const char *unit) { this->fahrenheit_conf_ = !strncmp(unit, "f", 1); }
+void Anova::set_unit_of_measurement(const char *unit) { this->fahrenheit_ = !strncmp(unit, "f", 1); }
 
 void Anova::update() {
   if (this->node_state != espbt::ClientState::ESTABLISHED)
