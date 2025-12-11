@@ -43,7 +43,6 @@ class Anova : public climate::Climate, public esphome::ble_client::BLEClientNode
   uint16_t char_handle_;
   uint8_t current_request_;
   bool fahrenheit_;
-  bool fahrenheit_conf_;
 };
 
 }  // namespace anova
