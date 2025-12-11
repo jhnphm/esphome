@@ -100,7 +100,7 @@ void Anova::gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_t gattc_
         this->mode = this->codec_->running_ ? climate::CLIMATE_MODE_HEAT : climate::CLIMATE_MODE_OFF;
       }
       if (this->codec_->has_unit()) {
-        this->fahrenheit_ = (this->codec_->unit_ == 'f');
+        // this->fahrenheit_ = (this->codec_->unit_ == 'f');
         ESP_LOGD(TAG, "Anova units is %s", this->fahrenheit_ ? "fahrenheit" : "celsius");
         this->current_request_++;
       }
@@ -144,8 +144,8 @@ void Anova::update() {
 
   if (this->current_request_ < 2) {
     auto *pkt = this->codec_->get_read_device_status_request();
-    if (this->current_request_ == 0)
-      this->codec_->get_set_unit_request(this->fahrenheit_ ? 'f' : 'c');
+    // if (this->current_request_ == 0)
+    //   this->codec_->get_set_unit_request(this->fahrenheit_ ? 'f' : 'c');
     auto status =
         esp_ble_gattc_write_char(this->parent_->get_gattc_if(), this->parent_->get_conn_id(), this->char_handle_,
                                  pkt->length, pkt->data, ESP_GATT_WRITE_TYPE_NO_RSP, ESP_GATT_AUTH_REQ_NONE);
