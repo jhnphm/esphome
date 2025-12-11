@@ -121,7 +121,7 @@ void AnovaCodec::decode(const uint8_t *data, uint16_t length) {
     case SET_UNIT:
     case READ_UNIT: {
       this->unit_ = buf[0];
-      this->fahrenheit_ = this->fahrenheit_ == 'f';
+      // this->fahrenheit_ = this->fahrenheit_ == 'f';
       this->has_unit_ = true;
       break;
     }
