@@ -4,7 +4,7 @@
 
 namespace esphome {
 namespace anova {
-
+static 
 float ftoc(float f) { return (f - 32.0) * (5.0f / 9.0f); }
 
 float ctof(float c) { return (c * 9.0f / 5.0f) + 32.0; }
@@ -121,7 +121,7 @@ void AnovaCodec::decode(const uint8_t *data, uint16_t length) {
     case SET_UNIT:
     case READ_UNIT: {
       this->unit_ = buf[0];
-      // this->fahrenheit_ = this->fahrenheit_ == 'f';
+      this->fahrenheit_ = buf[0] == 'f';
       this->has_unit_ = true;
       break;
     }
